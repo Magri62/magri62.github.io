@@ -42,12 +42,12 @@
        
 
         }
-        #myInput {
+   /*     #myInput {
             display: grid;
             margin-left: auto;
             margin-right: auto;
             
-        }
+        }*/
         #headShot{
             margin-left: auto;
             margin-right: auto;
@@ -68,16 +68,23 @@
     
     <h1 id = 'next' class = 'hidden'></h1>
     <div id = 'inputName'>
-    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names.." class= 'hidden'>
+   
+
     <input id = 'fname' class = 'hidden' type='text'>
-    <input id = 'submit' class= 'hidden' type ='submit'>
+    
     <br>
-    <select class = 'hidden' id = 'selectTeam'></select>
-    <input id = 'cflSubmit' class= 'hidden' type ='submit'>
+  
     <p id='outPut'></p>
     
     
     </div>
+    </div>
+    
+    <select class = 'hidden' id = 'selectTeam'></select>
+    <input id = 'cflSubmit' class= 'hidden' type ='submit'>
+    <input type="text" id="myInput" onkeyup="searchFunction(0)" placeholder="Search for names..">
+    <input type="text" id="positionInput" onkeyup="searchPosition()" placeholder="Position..">
+    <br>
     <table class = 'table table-bordered'id = 'roster'>
     </table>
     

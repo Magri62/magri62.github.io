@@ -1,4 +1,4 @@
-function searchFunction() {
+function searchFunction(x) {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
@@ -8,7 +8,7 @@ function searchFunction() {
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[x];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -19,6 +19,31 @@ function searchFunction() {
     }
   }
 }
+
+function searchPosition(x) {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("positionInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("roster");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+
+
 
 var text = ['Hello There', 
             'I\'m glad you found me',
@@ -134,8 +159,52 @@ function roster(a) {
 
             }
             break;
+        
+        case 7:
+            x = ""
+            for (i = 0; i < cflRoster.Saskatchewan.length; i++) {
+                x += '<tr>'
+                    + '<td>' + cflRoster.Saskatchewan[i].NAME + "</td> "
+                    + '<td>' + cflRoster.Saskatchewan[i]["A/N/G"] + "</td> "
+                    + '<td>' + cflRoster.Saskatchewan[i].COLLEGE + '</td>'
+                    + '<td>' + cflRoster.Saskatchewan[i].POS + '</td>'
+                    + '<td>' + cflRoster.Saskatchewan[i].IMG + '</td>'
+                    + '</tr>';
 
-    }            
+            }
+            break;
+            
+
+    
+            case 8:
+                    x = ""
+                    for (i = 0; i < cflRoster.Hamilton.length; i++) {
+                        x += '<tr>'
+                            + '<td>' + cflRoster.Hamilton[i].NAME + "</td> "
+                            + '<td>' + cflRoster.Hamilton[i]["A/N/G"] + "</td> "
+                            + '<td>' + cflRoster.Hamilton[i].COLLEGE + '</td>'
+                            + '<td>' + cflRoster.Hamilton[i].POS + '</td>'
+                            + '<td>' + cflRoster.Hamilton[i].IMG + '</td>'
+                            + '</tr>';
+
+                    }
+                    break;
+            case 9:
+                    x = ""
+                    for (i = 0; i < cflRoster.BC.length; i++) {
+                        x += '<tr>'
+                            + '<td>' + cflRoster.BC[i].NAME + "</td> "
+                            + '<td>' + cflRoster.BC[i]["A/N/G"] + "</td> "
+                            + '<td>' + cflRoster.BC[i].COLLEGE + '</td>'
+                            + '<td>' + cflRoster.BC[i].POS + '</td>'
+                            + '<td>' + cflRoster.BC[i].IMG + '</td>'
+                            + '</tr>';
+
+                    }
+                    break;
+
+
+            }        
             $('myInput').fadeIn(300);
             $('#roster').html(x);
 
@@ -190,6 +259,7 @@ function welcome(){
                 break;
 
             case 'Hamilton':
+                roster(8);
                 $('#imgHeader').attr('src',logos.Hamilton);
                 break;
             case 'Montreal':
@@ -213,9 +283,11 @@ function welcome(){
                 $('#imgHeader').attr('src',logos.Calgary);
                 break;
             case 'Saskatchewan':
+                roster(7);
                 $('#imgHeader').attr('src',logos.Saskatchewan);
                 break;
             case 'BC':
+                roster(9);
                 $('#imgHeader').attr('src',logos.BC);
                 break;};
                             
