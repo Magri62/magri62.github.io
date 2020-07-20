@@ -42,13 +42,11 @@ function searchPosition(x) {
   }
 }
 
-
-
-
 var text = ['Hello There', 
             'I\'m glad you found me',
             'I want to play a game..',
             'Are you ready to get started?']; //opening text
+
 var teams = ['Toronto',
              'Hamilton',
              'Montreal',
@@ -58,6 +56,7 @@ var teams = ['Toronto',
              'Calgary',
              'Saskatchewan',
              'BC']; 
+
 var logos = {'Toronto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Argonauts_Logo.svg/600px-Argonauts_Logo.svg.png',
              'Hamilton': 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Hamilton_Tiger-Cats_logo.svg/1200px-Hamilton_Tiger-Cats_logo.svg.png',
               'Montreal': 'https://i.pinimg.com/originals/58/c6/50/58c65038c043895dee90db31176cf293.png',
@@ -67,6 +66,7 @@ var logos = {'Toronto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/
                 'Calgary':'https://upload.wikimedia.org/wikipedia/en/thumb/1/14/Calgary_Stampeders_logo.svg/1200px-Calgary_Stampeders_logo.svg.png',
                 'Saskatchewan':'https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Saskatchewan_Roughriders_logo.svg/1200px-Saskatchewan_Roughriders_logo.svg.png',
                 'BC':'https://upload.wikimedia.org/wikipedia/en/thumb/9/99/BC_Lions_logo.svg/1200px-BC_Lions_logo.svg.png'};
+
 function team() {
 var steams = "<option value ='0'>Select</option>";
 for (i = 0; i < teams.length; i++){
@@ -76,14 +76,17 @@ for (i = 0; i < teams.length; i++){
     console.log(steams);
     
 };
+
 function roster(a) {
 
     switch (a) {
 
         case 1:
-            x = ""
+            x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Argonauts.length; i++) {
-                x += '<tr>'
+                x += 
+                    
+                    '<tr>'
                     + '<td>' +  cflRoster.Argonauts[i].NAME + "</td> "
                     + '<td>' + cflRoster.Argonauts[i]["A/N/G"] + "</td> "
                     + '<td>' + cflRoster.Argonauts[i].COLLEGE + '</td>'
@@ -91,11 +94,11 @@ function roster(a) {
                     + '<td>' + cflRoster.Argonauts[i].IMG + '</td>'
                     + '</tr>';
                 
-            }
-            $(x).fadeIn(300);
+            } 
+            
             break;
         case 2:
-            x = ""
+            x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Eskimos.length; i++) {
                 x += '<tr>'
                     + '<td>' + cflRoster.Eskimos[i].NAME + "</td> "
@@ -108,7 +111,7 @@ function roster(a) {
             }
             break;
         case 3:
-            x = ""
+            x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Montreal.length; i++) {
                 x += '<tr>'
                     + '<td>' + cflRoster.Montreal[i].NAME + "</td> "
@@ -121,7 +124,7 @@ function roster(a) {
             }
             break;
         case 4:
-            x = ""
+            x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Ottawa.length; i++) {
                 x += '<tr>'
                     + '<td>' + cflRoster.Ottawa[i].NAME + "</td> "
@@ -134,7 +137,7 @@ function roster(a) {
             }
             break;
         case 5:
-            x = ""
+            x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Calgary.length; i++) {
                 x += '<tr>'
                     + '<td>' + cflRoster.Calgary[i].NAME + "</td> "
@@ -147,7 +150,7 @@ function roster(a) {
             }
             break;
         case 6:
-            x = ""
+            x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Winnipeg.length; i++) {
                 x += '<tr>'
                     + '<td>' + cflRoster.Winnipeg[i].NAME + "</td> "
@@ -161,7 +164,7 @@ function roster(a) {
             break;
         
         case 7:
-            x = ""
+            x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Saskatchewan.length; i++) {
                 x += '<tr>'
                     + '<td>' + cflRoster.Saskatchewan[i].NAME + "</td> "
@@ -177,7 +180,7 @@ function roster(a) {
 
     
             case 8:
-                    x = ""
+                    x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
                     for (i = 0; i < cflRoster.Hamilton.length; i++) {
                         x += '<tr>'
                             + '<td>' + cflRoster.Hamilton[i].NAME + "</td> "
@@ -190,7 +193,7 @@ function roster(a) {
                     }
                     break;
             case 9:
-                    x = ""
+                    x = '<thead><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
                     for (i = 0; i < cflRoster.BC.length; i++) {
                         x += '<tr>'
                             + '<td>' + cflRoster.BC[i].NAME + "</td> "
@@ -210,6 +213,7 @@ function roster(a) {
 
                 
 };
+
 function welcome(){
     //$('#title').html(text[0]);
     //$('#title').click(function(){
@@ -253,7 +257,7 @@ function welcome(){
 
 
             case 'Toronto':
-
+                
                 roster(1);
                 $('#imgHeader').fadeIn(300).attr('src',logos.Toronto);
                 break;

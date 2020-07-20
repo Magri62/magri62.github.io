@@ -13,6 +13,9 @@
 	<title>CFL Roster Search</title>
     <style></style>
 	<style type="text/css">
+        #selection{
+            display: block;
+        }
         nav{
             background: #333;
             padding: 1px;
@@ -79,13 +82,17 @@
     
     </div>
     </div>
-    
+    <div id = 'selection'>
     <select class = 'hidden' id = 'selectTeam'></select>
     <input id = 'cflSubmit' class= 'hidden' type ='submit'>
     <input type="text" id="myInput" onkeyup="searchFunction(0)" placeholder="Search for names..">
     <input type="text" id="positionInput" onkeyup="searchPosition()" placeholder="Position..">
+    </div>
     <br>
+   
+ 
     <table class = 'table table-bordered'id = 'roster'>
+       
     </table>
     
     
