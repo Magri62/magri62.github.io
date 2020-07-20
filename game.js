@@ -173,12 +173,16 @@ function welcome(){
         $('#cflSubmit').click(function(){
         var cflTeam = document.getElementById('selectTeam').value;
         $('#next').hide();
+        $('#title').hide(2000);
         $('#next').fadeIn(300).html('You picked ' + cflTeam);
+           
 
 
         console.log(cflTeam);
             //var list = "";
-        switch(cflTeam){
+            switch (cflTeam) {
+
+
             case 'Toronto':
 
                 roster(1);
@@ -218,7 +222,10 @@ function welcome(){
                            
                           
                          
-                            });};
+    });
+};
+
+$('#title').html('Pick a team to get started');
                   
 
 welcome();
