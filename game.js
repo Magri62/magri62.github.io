@@ -55,7 +55,8 @@ var teams = ['Toronto',
              'Edmonton',
              'Calgary',
              'Saskatchewan',
-             'BC']; //team list 
+             'BC',
+             'TEST']; //team list 
 
 var logos = {'Toronto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Argonauts_Logo.svg/600px-Argonauts_Logo.svg.png',
              'Hamilton': 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Hamilton_Tiger-Cats_logo.svg/1200px-Hamilton_Tiger-Cats_logo.svg.png',
@@ -208,6 +209,20 @@ function roster(a) {
 
                     }
                     break;
+            
+            case 10:
+                    x = '<thead class = "thead-dark"><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
+                    for (i = 0; i < cflRoster.Argonauts.length + cflRoster.BC.length; i++) {
+                        x += '<tr>'
+                            + '<td>' + cflRoster.Argonauts[i].NAME +  cflRoster.BC[i].NAME +     "</td> "
+                            + '<td>' + cflRoster.Argonauts[i]["A/N/G"] + "</td> "
+                            + '<td>' + cflRoster.Argonauts[i].COLLEGE + '</td>'
+                            + '<td>' + cflRoster.Argonauts[i].POS + '</td>'
+                            + '<td>' + cflRoster.Argonauts[i].IMG + '</td>'
+                            + '</tr>';
+
+                    }
+                    break;
 
 
             }        
@@ -268,7 +283,12 @@ function main(){
             case 'BC':
                 roster(9);
                 $('#imgHeader').attr('src',logos.BC);
+                break;
+            case 'TEST': 
+                 roster(10);
+                $('#imgHeader').attr('src',logos.BC);
                 break;};
+                
                             
                            
                           
