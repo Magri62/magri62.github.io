@@ -218,8 +218,7 @@ function roster(a) {
 function main(){
 
     $('#selectTeam').fadeIn(300);
-        $('#cflSubmit').show();
-        $('#cflSubmit').click(function(){
+    $('#selectTeam').on('change', function(){
         var cflTeam = document.getElementById('selectTeam').value;
         $('#next').hide();
         $('#title').hide(2000);
