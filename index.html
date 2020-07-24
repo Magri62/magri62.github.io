@@ -9,8 +9,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <html>
-    
-   
+
+
 <head>
 	<title>CFL Roster Search</title>
     <style></style>
@@ -23,14 +23,12 @@
         #selection{
             display: block;
         }
+
+
         nav{
             background-color: #333;
             padding: 1px;
             overflow: hidden;
-            animation-name: change;
-            animation-duration: 1s;
-            animation-iteration-count: 2;
-            animation-direction: alternate;
             top: 0;
             width: 100%;
         }
@@ -70,10 +68,10 @@
             from{background-color: #333;}
             to {background-color: orangered;}
                     }
-        
-        
+
+
         .hidden { display: none;
-                  text-align: center;   
+                  text-align: center;
         }
         .fname {
             position: absolute;
@@ -90,7 +88,7 @@
         td{
             padding: 10px;
             border: 1px solid black;
-       
+
 
         }
 
@@ -102,7 +100,7 @@
         }
         .thead-dark{
             background-color: aqua;
-           
+
         }
         .cb{
             position: fixed;
@@ -125,25 +123,25 @@
     <div class = container>
         <div class= 'row'>
         <div class = 'col xs-4'>
-            
+
     <h1 id = 'title' style = 'text-align: center'></h1>
-    
+
     <h1 id = 'next' class = 'hidden'></h1>
-   
+
 
     <input id = 'fname' class = 'hidden' type='text'>
-    
+
     <br>
-  
+
     <p id='outPut'>
-          
+
             </p>
     <p id ='outPut2'></p>
-    
+
             </div>
     </div>
-        
-    
+
+
     <div id = 'selection'>
     <select class = 'hidden' id = 'selectTeam'></select>
     <input id = 'cflSubmit' class= 'hidden' type ='submit'>
@@ -152,19 +150,19 @@
         <button type="button" id="hideButton">Toggle</button>
     </div>
     </div>
-    
+
     <br>
-   
- 
+
+
     <table class = 'table table-hover' id = 'roster'>
         <tbody id = 'myTable'>
         </tbody>
-       
-    </table>
-    
-    
 
-    
+    </table>
+
+
+
+
 </body>
 </html>
         <script src="jquery-3.5.1.js"></script>
