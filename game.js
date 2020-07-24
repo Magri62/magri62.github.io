@@ -42,10 +42,7 @@ function searchPosition(x) {
   }
 }
 
-var text = ['Hello There', 
-            'I\'m glad you found me',
-            'I want to play a game..',
-            'Are you ready to get started?']; //opening text
+
 
 var teams = ['Toronto',
              'Hamilton',
@@ -56,7 +53,7 @@ var teams = ['Toronto',
              'Calgary',
              'Saskatchewan',
              'BC',
-             'TEST']; //team list 
+                ]; //team list 
 
 var logos = {'Toronto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Argonauts_Logo.svg/600px-Argonauts_Logo.svg.png',
              'Hamilton': 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Hamilton_Tiger-Cats_logo.svg/1200px-Hamilton_Tiger-Cats_logo.svg.png',
@@ -73,36 +70,46 @@ var steams = "<option value ='0'>Select</option>";
 for (i = 0; i < teams.length; i++){
     steams += "<option value = '"+teams[i]+"'>" + teams[i] + "</option>";
 }
-   document.getElementById('selectTeam').innerHTML = steams;
-    console.log(steams);
-    
+   document.getElementById('selectTeam').innerHTML = steams;    
 }; //array of team names
-function test(a){
-    alert('you clicked me ' + a)
-}
+
+function player(a){
+                    console.log(a);
+                }
+
 function roster(a) {
 
     switch (a) {
-
+        
+           
         case 1:
-            x = '<thead class = "thead-dark"><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
-            for (i = 0; i < cflRoster.Argonauts.length; i++) {
-                
+         
+            x = '<thead class = "thead-dark"><tr><th >Name</th><th>Status</th><th>College</th><th>Position</th><th>Image</th></tr></thead>';
+         
+            for (i = 0 ; i < cflRoster.Argonauts.length ; i++) 
 
-                x += 
-                    
-                    '<tr>'
-                    + '<td id = "playN">' +  cflRoster.Argonauts[i].NAME + "</td> "
+            {                
+                y = 0;
+                y += i
+                x += '<tr>'
+                    + '<td id = "playerName">' + cflRoster.Argonauts[y].NAME + "</td> " 
                     + '<td>' + cflRoster.Argonauts[i]["A/N/G"] + "</td> "
                     + '<td>' + cflRoster.Argonauts[i].COLLEGE + '</td>'
                     + '<td>' + cflRoster.Argonauts[i].POS + '</td>'
                     + '<td>' + cflRoster.Argonauts[i].IMG + '</td>'
-                    + '</tr>';
-                
-            } 
+                ;
+            }
+            
+            
+
+
+            
+            
+          
+            
             break;
         case 2:
-            x = '<thead class = "thead-dark"><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
+            x = '<thead class = "thead-dark"><tr><th data-column="NAME" data-order="desc">Name</th><th data-column = "[A/N/G]" data-order ="desc">Status</th><th data-column="COLLEGE" data-order = "desc">College</th><th data-column= "POS" data-order = "desc">Position</th><th data-column="IMG" data-order = "desc">Image</th></tr></thead>'
             for (i = 0; i < cflRoster.Eskimos.length; i++) {
                 x += '<tr>'
                     + '<td>' + cflRoster.Eskimos[i].NAME + "</td> "
@@ -193,8 +200,13 @@ function roster(a) {
                             + '<td>' + cflRoster.Hamilton[i].POS + '</td>'
                             + '<td>' + cflRoster.Hamilton[i].IMG + '</td>'
                             + '</tr>';
+                            
 
                     }
+                    for(z = 0; z < 100; z++){
+                        z += 1
+                                console.log(z);
+                            }
                     break;
             case 9:
                     x = '<thead class = "thead-dark"><tr><th data-attr="playerName">Name</th><th data-attr="status">Status</th><th data-attr="college">College</th><th data-attr="positon">Position</th><th data-attr="IMGt">Image</th></tr></thead>'
@@ -248,39 +260,48 @@ function main(){
 
             case 'Toronto':
                 
+                $('nav').css('animation-name','Toronto');
                 roster(1);
                 $('#imgHeader').fadeIn(300).attr('src',logos.Toronto);
                 break;
 
             case 'Hamilton':
+                $('nav').css('animation-name','Hamilton');
                 roster(8);
                 $('#imgHeader').attr('src',logos.Hamilton);
                 break;
             case 'Montreal':
+                $('nav').css('animation-name','Montreal');
                 roster(3);
                 $('#imgHeader').attr('src',logos.Montreal);
                 break;
             case 'Ottawa':
+                $('nav').css('animation-name','Ottawa');
                 roster(4);
                 $('#imgHeader').attr('src',logos.Ottawa);
                 break;
             case 'Winnipeg':
+                $('nav').css('animation-name','Winnipeg');
                 roster(6);
                 $('#imgHeader').attr('src',logos.Winnipeg);
                 break;
             case 'Edmonton':
+                $('nav').css('animation-name','Edmonton');
                 roster(2);
                 $('#imgHeader').attr('src',logos.Edmonton);
                 break;
             case 'Calgary':
+                $('nav').css('animation-name','Calgary');
                 roster(5);
                 $('#imgHeader').attr('src',logos.Calgary);
                 break;
             case 'Saskatchewan':
+                $('nav').css('animation-name','Saskatchewan');
                 roster(7);
                 $('#imgHeader').attr('src',logos.Saskatchewan);
                 break;
             case 'BC':
+                $('nav').css('animation-name','BC');
                 roster(9);
                 $('#imgHeader').attr('src',logos.BC);
                 break;
@@ -297,9 +318,17 @@ function main(){
 };
 
 $('#title').html('Pick a team to get started');
+$('#hideButton').click(function(){
+    $('table').fadeToggle('fast','swing')
+    
+})
                   
 
 main();
 team();
+console.log(document.getElementById('myInput').value);
+
+    
+
 
    

@@ -9,21 +9,69 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <html>
+    
+   
 <head>
 	<title>CFL Roster Search</title>
     <style></style>
 	<style type="text/css">
+        #headshot {
+             display: block;
+            max-height: 100px;
+            max-width: 100px;
+        }
         #selection{
             display: block;
         }
         nav{
-            background: #333;
+            background-color: #333;
             padding: 1px;
             overflow: hidden;
-            
+            animation-name: change;
+            animation-duration: 1s;
+            animation-iteration-count: 2;
+            animation-direction: alternate;
             top: 0;
             width: 100%;
         }
+        @keyframes Toronto{
+            from{background-color: #333;}
+            to {background-color: skyblue;}
+                    }
+        @keyframes Hamilton{
+            from{background-color: #333;}
+            to {background-color: gold;}
+                    }
+        @keyframes Ottawa{
+            from{background-color: #333;}
+            to {background-color: red;}
+                    }
+        @keyframes Montreal{
+            from{background-color: #333;}
+            to {background-color: darkblue;}
+                    }
+        @keyframes Winnipeg{
+            from{background-color: #333;}
+            to {background-color: gold;}
+                    }
+        @keyframes Edmonton{
+            from{background-color: #333;}
+            to {background-color: green;}
+                    }
+        @keyframes Calgary{
+            from{background-color: #333;}
+            to {background-color: darkred;}
+                    }
+        @keyframes Saskatchewan{
+            from{background-color: #333;}
+            to {background-color: darkgreen;}
+                    }
+        @keyframes BC{
+            from{background-color: #333;}
+            to {background-color: orangered;}
+                    }
+        
+        
         .hidden { display: none;
                   text-align: center;   
         }
@@ -45,19 +93,22 @@
        
 
         }
-   /*     #myInput {
-            display: grid;
-            margin-left: auto;
-            margin-right: auto;
-            
-        }*/
+
         #headShot{
             margin-left: auto;
             margin-right: auto;
             max-height: 30px;
             max-height: 50px;
         }
-        
+        .thead-dark{
+            background-color: aqua;
+           
+        }
+        .cb{
+            position: fixed;
+            left: 500px;
+            right: 500;
+        }
 	</style>
 </head>
 <body >
@@ -66,6 +117,11 @@
     </nav>
     <br />
     <br />
+    <canvas>
+    <select id = 'cb'>
+    <option>Test</option>
+    </select>
+    </canvas>
     <div class = container>
         <div class= 'row'>
         <div class = 'col xs-4'>
@@ -79,8 +135,10 @@
     
     <br>
   
-    <p id='outPut'></p>
-    
+    <p id='outPut'>
+          
+            </p>
+    <p id ='outPut2'></p>
     
             </div>
     </div>
@@ -91,6 +149,7 @@
     <input id = 'cflSubmit' class= 'hidden' type ='submit'>
     <input type="text" id="myInput" onkeyup="searchFunction(0)" placeholder="Search for names..">
     <input type="text" id="positionInput" onkeyup="searchPosition()" placeholder="Position..">
+        <button type="button" id="hideButton">Toggle</button>
     </div>
     </div>
     
@@ -98,6 +157,8 @@
    
  
     <table class = 'table table-hover' id = 'roster'>
+        <tbody id = 'myTable'>
+        </tbody>
        
     </table>
     
