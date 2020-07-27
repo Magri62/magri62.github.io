@@ -10,7 +10,7 @@ fetch(proxy + 'http://api.cfl.ca/v1/transactions/2020?'+ ID +'&page[number]=' + 
     .then(function(obj){
          console.log(obj.data[0].first_name);
          transactions = '<thead class = "thead-dark"><tr><th >First</th><th>Last</th><th>From</th><th>To</th><th>Transaction Date<th>School</th></tr></thead>'
-         for(i = 1; i < 100; i++){
+         for(i = 0; i < 100; i++){
         transactions += '<tr><td>' +obj.data[i].first_name 
                     + '</td><td>' + obj.data[i].last_name 
                     + '</td><td>' +obj.data[i].from_team_abbreviation
