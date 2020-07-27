@@ -1,4 +1,4 @@
-function sendEmail() {
+/*function sendEmail() {
 Email.send({
     SecureToken : '89538345-ac4e-40d6-ad43-bae62046236d',
     Host : "smtp.elasticemail.com",
@@ -9,7 +9,7 @@ Email.send({
     Subject : "Test email",
     Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
 }).then(message => alert(message));
-}
+}*/
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("table");
@@ -74,7 +74,7 @@ fetch(proxy + 'http://api.cfl.ca/v1/transactions/2020?'+ ID +'&page[number]=' + 
     return (resp.json())
     .then(function(obj){
          console.log(obj.data[0].first_name);
-         transactions = '<thead class = "thead-dark"><tr><th onclick = "sortTable(0)" >First</th><th onclick = "sortTable(1)">Last</th><th onclick = "sortTable(2)">From</th><th onclick = "sortTable(3)">To</th><th onclick = "sortTable(4)">Transaction Date<th onclick = "sortTable(5)">School</th><th onclick = "sortTable(6)">Status</th><th onclick = "sortTable(7)">Action</th></tr></thead>'
+         transactions = '<thead class = "thead-dark"><tr><th onclick = "sortTable(0)" >First (Click to sort)</th><th onclick = "sortTable(1)">Last</th><th onclick = "sortTable(2)">From</th><th onclick = "sortTable(3)">To</th><th onclick = "sortTable(4)">Transaction Date<th onclick = "sortTable(5)">School</th><th onclick = "sortTable(6)">Status</th><th onclick = "sortTable(7)">Action</th></tr></thead>'
          for(i = 0; i < 100; i++){
         transactions += '<tr><td>' +obj.data[i].first_name 
                     + '</td><td>' + obj.data[i].last_name 
