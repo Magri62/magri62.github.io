@@ -70,14 +70,16 @@ ID = "key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3"
 PAGE = 1//&page[number]=1&page[size]=100
 SIZE = 100
 
-for ( PAGE = 1; PAGE < 50; PAGE ++){
+for ( PAGE = 1; PAGE < 2; PAGE ++){
     fetch(proxy + 'http://api.cfl.ca/v1/transactions/2020?'+ ID +'&page[number]=' + PAGE + '&page[size]=' + SIZE )
     .then(function(resp){
     return (resp.json())
     .then(function(obj){
          console.log(obj.data[0].first_name);
-         transactions = ''
+        
+        transactions = ''
          for(i = 0; i < 100; i++){
+            
         transactions += '<tr><td>' +obj.data[i].first_name 
                     + '</td><td>' + obj.data[i].last_name 
                     + '</td><td>' +obj.data[i].from_team_abbreviation
@@ -89,20 +91,126 @@ for ( PAGE = 1; PAGE < 50; PAGE ++){
                     + '</td><td></tr>';
         
         
-       console.log(PAGE);
          }
         $('#table').append(transactions) 
     }
           )
           }
               )}};
-        //
-       
-       
-       //document.getElementById('outPut2').innerHTML = firstw + ' ' + '<br>' + secondw + '<br>' + thirdw + '<br>' + forthw
- 
-    
+        
+async function players(){
+$('#table').hide();
+proxy = 'https://cors-anywhere.herokuapp.com/';
+ID = "key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3"
+PAGE = 1//&page[number]=1&page[size]=100
+SIZE = 100
+ENDPOINT1 = '&include=season,current_team'
 
-console.log('hello world')
+for ( PAGE = 1; PAGE < 500; PAGE ++){
+    fetch(proxy + 'http://api.cfl.ca/v1/players?' + ID + ENDPOINT1 +'&page[number]=' + PAGE + '&page[size]=' + SIZE )
+    .then(function(resp){
+    return (resp.json())
+    .then(function(obj){
+         player = ''
+        
+         for(i = 0; i < 100; i++){
+             if(obj.data[i].team.is_set === true){
+        player += '<tr id ="playerTable"><td>' + '<img src='+ obj.data[i].image_url + " width='160' height='200'>"
+                    + '</td><td>' + obj.data[i].team.location
+                    + '</td><td>' + obj.data[i].last_name 
+                    + '</td><td>' +obj.data[i].first_name
+                    +'</td><td>'+ obj.data[i].height
+                    + '</td><td>'+ obj.data[i].weight 
+                    + '</td><td>' + obj.data[i].school.name 
+                    + '</td><td>' +obj.data[i].position.abbreviation
+                    + '</td><td></tr>';
+        
+         
+         }
+        }
+        $('#player').append(player); 
+    
+       
+    }
+          )
+          }
+              )}};
+
+async function defense(){
+$('#table').hide();
+proxy = 'https://cors-anywhere.herokuapp.com/';
+ID = "key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3"
+PAGE = 1//&page[number]=1&page[size]=100
+SIZE = 100
+ENDPOINT1 = '&include=season,current_team'
+
+for ( PAGE = 1; PAGE < 500; PAGE ++){
+    fetch(proxy + 'http://api.cfl.ca/v1/players?' + ID + ENDPOINT1 +'&page[number]=' + PAGE + '&page[size]=' + SIZE )
+    .then(function(resp){
+    return (resp.json())
+    .then(function(obj){
+         player = ''
+        
+         for(i = 0; i < 100; i++){
+             if(obj.data[i].position.offence_defence_or_special == 'D' ) {
+        player += '<tr id ="playerTable"><td>' + '<img src='+ obj.data[i].image_url + " width='160' height='200'>"
+                    + '</td><td>' + obj.data[i].team.location
+                    + '</td><td>' + obj.data[i].last_name 
+                    + '</td><td>' +obj.data[i].first_name
+                    +'</td><td>'+ obj.data[i].height
+                    + '</td><td>'+ obj.data[i].weight 
+                    + '</td><td>' + obj.data[i].school.name 
+                    + '</td><td>' +obj.data[i].position.abbreviation
+                    + '</td><td></tr>';
+        
+         
+         }
+        }
+        $('#player').append(player); 
+    
+       
+    }
+          )
+          }
+              )}};
+
+async function offense(){
+$('#table').hide();
+proxy = 'https://cors-anywhere.herokuapp.com/';
+ID = "key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3"
+PAGE = 1//&page[number]=1&page[size]=100
+SIZE = 100
+ENDPOINT1 = '&include=season,current_team'
+
+for ( PAGE = 1; PAGE < 500; PAGE ++){
+    fetch(proxy + 'http://api.cfl.ca/v1/players?' + ID + ENDPOINT1 +'&page[number]=' + PAGE + '&page[size]=' + SIZE )
+    .then(function(resp){
+    return (resp.json())
+    .then(function(obj){
+         player = ''
+         for(i = 0; i < 100; i++){
+             if(obj.data[i].position.offence_defence_or_special == 'O' && obj.data[i].team.is_set === true){
+        player += '<tr id ="playerTable"><td>' + '<img src='+ obj.data[i].image_url + " width='160' height='200'>"
+                    + '</td><td>' + obj.data[i].team.location
+                    + '</td><td>' + obj.data[i].last_name 
+                    + '</td><td>' +obj.data[i].first_name
+                    +'</td><td>'+ obj.data[i].height
+                    + '</td><td>'+ obj.data[i].weight 
+                    + '</td><td>' + obj.data[i].school.name 
+                    + '</td><td>' +obj.data[i].position.abbreviation
+                    + '</td><td></tr>';
+        
+         
+         }
+        }
+        $('#player').append(player); 
+    
+       
+    }
+          )
+          }
+              )}};
+
+
 
 transaction()
