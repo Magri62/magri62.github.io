@@ -25,6 +25,7 @@
     
     <main>
     <input type = 'button' value = 'Transactions' onclick = "transactions()">
+    <input type = 'button' value = 'Neglist' onclick = "neglist()">
     <input type = 'button' value = 'Players' onclick = "players()">
     <input type = 'button' value = 'Defense' onclick = "defense()">
     <input type = 'button' value = 'Offense' onclick = "offense()">
@@ -36,6 +37,9 @@
          <thead class = "thead-dark"><tr><th onclick = "sortTable(0)" >First</th><th onclick = "sortTable(1)">Last</th><th onclick = "sortTable(2)">From</th><th onclick = "sortTable(3)">To</th><th onclick = "sortTable(4)">Transaction Date<th onclick = "sortTable(5)">School</th><th onclick = "sortTable(6)">Status</th><th onclick = "sortTable(7)">Action</th></tr></thead>
      
     
+        </table>
+        <table class = 'table table-hover' id = 'negTable'>
+        
         </table>
         <table class = 'table hidden' id = 'player'>
          

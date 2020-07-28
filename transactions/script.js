@@ -97,6 +97,42 @@ for ( PAGE = 1; PAGE < 2; PAGE ++){
           )
           }
               )}};
+
+async function neglist(){
+
+proxy = 'https://cors-anywhere.herokuapp.com/';
+ID = "key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3"
+PAGE = 1//&page[number]=1&page[size]=100
+SIZE = 100
+
+for ( PAGE = 1; PAGE < 10; PAGE ++){
+    $('table').hide();
+    fetch(proxy + 'http://api.cfl.ca/v1/transactions/2020?'+ ID +'&page[number]=' + PAGE + '&page[size]=' + SIZE )
+    .then(function(resp){
+    return (resp.json())
+    .then(function(obj){
+        
+        transactions = ''
+         for(i = 0; i < 100; i++){
+             if(obj.data[i].new_status_description === 'NEGLIST')
+            
+        transactions += '<tr><td>' +obj.data[i].first_name 
+                    + '</td><td>' + obj.data[i].last_name 
+                    + '</td><td>' +obj.data[i].from_team_abbreviation
+                    +'</td><td>'+ obj.data[i].to_team_abbreviation
+                    + '</td><td>'+ obj.data[i].transaction_date 
+                    + '</td><td>' + obj.data[i].school_name 
+                    + '</td><td>' + obj.data[i].new_status_description
+                    + '</td><td>' + obj.data[i].action_description
+                    + '</td><td></tr>';
+        
+        
+         }
+        $('#table').append(transactions) 
+    }
+          )
+          }
+              )}};
         
 async function players(){
 $('#table').hide();
