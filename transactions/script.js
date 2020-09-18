@@ -70,7 +70,7 @@ ID = "key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3"
 PAGE = 1//&page[number]=1&page[size]=100
 SIZE = 100
 
-for ( PAGE = 1; PAGE < 2; PAGE ++){
+for ( PAGE = 1; PAGE < 10; PAGE ++){
     fetch(proxy + 'http://api.cfl.ca/v1/transactions/2020?'+ ID +'&page[number]=' + PAGE + '&page[size]=' + SIZE )
     .then(function(resp){
     return (resp.json())
@@ -105,16 +105,16 @@ ID = "key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3"
 PAGE = 1//&page[number]=1&page[size]=100
 SIZE = 100
 
-for ( PAGE = 1; PAGE < 10; PAGE ++){
+for ( PAGE = 1; PAGE < 100; PAGE ++){
    // $('table').hide();
-    fetch(proxy + 'http://api.cfl.ca/v1/transactions/2020?'+ ID +'&page[number]=' + PAGE + '&page[size]=' + SIZE )
+    fetch(proxy + 'http://api.cfl.ca/v1/transactions/2020?key=8vQxQpKGwMo8BWaLj22HcxTtaCcfMOR3&filter[new_status_description][eq]=ACTIVE')
     .then(function(resp){
     return (resp.json())
     .then(function(obj){
         
         transactions = ''
          for(i = 0; i < 100; i++){
-             if(obj.data[i].new_status_description == 'NEGLIST')
+            
             
         transactions += '<tr><td>' +obj.data[i].first_name 
                     + '</td><td>' + obj.data[i].last_name 
@@ -128,7 +128,7 @@ for ( PAGE = 1; PAGE < 10; PAGE ++){
         
         
          }
-        $('#table').html(transactions) 
+        $('#table').append(transactions) 
     }
           )
           }
@@ -150,8 +150,8 @@ for ( PAGE = 1; PAGE < 500; PAGE ++){
          player = ''
         
          for(i = 0; i < 100; i++){
-             if(obj.data[i].team.is_set === true){
-        player += '<tr id ="playerTable"><td>' + '<img src='+ obj.data[i].image_url + " width='160' height='200'>"
+           
+        player += '<tr id ="playerTable"><td>' //+ '<img src='+ obj.data[i].image_url + " width='160' height='200'>"
                     + '</td><td>' + obj.data[i].team.location
                     + '</td><td>' + obj.data[i].last_name 
                     + '</td><td>' +obj.data[i].first_name
@@ -160,16 +160,20 @@ for ( PAGE = 1; PAGE < 500; PAGE ++){
                     + '</td><td>' + obj.data[i].school.name 
                     + '</td><td>' +obj.data[i].position.abbreviation
                     + '</td><td></tr>';
-        
+
          
-         }
+         
+
         }
-        $('#player').append(player); 
-    
+
+                             $('#player').append(player); 
+
        
     }
           )
+
           }
+
               )}};
 
 async function defense(){
@@ -186,9 +190,8 @@ for ( PAGE = 1; PAGE < 500; PAGE ++){
     return (resp.json())
     .then(function(obj){
          player = ''
-        
-         for(i = 0; i < 100; i++){
-             if(obj.data[i].position.offence_defence_or_special == 'D' ) {
+         for(i = 0; i < obj.data.length; i++){
+             if(obj.data[i].position.offence_defence_or_special == 'D' && obj.data[i].team.is_set == true ) {
         player += '<tr id ="playerTable"><td>' + '<img src='+ obj.data[i].image_url + " width='160' height='200'>"
                     + '</td><td>' + obj.data[i].team.location
                     + '</td><td>' + obj.data[i].last_name 
@@ -198,8 +201,6 @@ for ( PAGE = 1; PAGE < 500; PAGE ++){
                     + '</td><td>' + obj.data[i].school.name 
                     + '</td><td>' +obj.data[i].position.abbreviation
                     + '</td><td></tr>';
-        
-         
          }
         }
         $('#player').append(player); 
@@ -249,4 +250,4 @@ for ( PAGE = 1; PAGE < 500; PAGE ++){
 
 
 
-transaction()
+transaction();
